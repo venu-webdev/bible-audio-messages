@@ -1,5 +1,5 @@
 // Configuration - Replace with your actual Google Apps Script URL
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCrMMe5FUO2xYwIAFJvzYn9I8l3mgM5F1foA36gXdy6O1oEgU4r-z2e4jlTYOA15XZOg/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8do_gAuD044aPeHQDf5BX-L2-xfa1LYFbiJROI7nIslBqs4AL6inQEQHmGOBFJ_VHCw/exec';
 
 // Global variables
 let allMessages = [];
@@ -521,4 +521,5 @@ async function saveEditedMessage(event) {
 // Handle book filter changes to update chapter options
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('book-filter').addEventListener('change', updateFilterOptions);
+
 });
