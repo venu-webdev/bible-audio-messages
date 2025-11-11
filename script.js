@@ -1,5 +1,5 @@
 // Configuration - Replace with your actual Google Apps Script URL
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8do_gAuD044aPeHQDf5BX-L2-xfa1LYFbiJROI7nIslBqs4AL6inQEQHmGOBFJ_VHCw/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSUSU97kLLt0Gmmm4D8XjddcBBCfCqbzORsyt_ug0cckKxe6rogqoWbYZNvyWgkSB0_Q/exec';
 
 // Global variables
 let allMessages = [];
@@ -523,3 +523,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('book-filter').addEventListener('change', updateFilterOptions);
 
 });
+
