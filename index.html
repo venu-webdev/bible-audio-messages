@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Bible Audio Messages</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-bible"></i> Daily Bible Audio Messages</h1>
+                <p>Organized teachings from our pastor</p>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('browse')">
+                <i class="fas fa-search"></i> Browse Messages
+            </button>
+            <button class="tab-btn" onclick="showTab('upload')">
+                <i class="fas fa-upload"></i> Upload New Message
+            </button>
+        </nav>
+
+        <!-- Browse Messages Tab -->
+        <div id="browse-tab" class="tab-content active">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="book-filter">Book:</label>
+                    <select id="book-filter" onchange="filterMessages()">
+                        <option value="">All Books</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="chapter-filter">Chapter:</label>
+                    <select id="chapter-filter" onchange="filterMessages()">
+                        <option value="">All Chapters</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="search-input">Search:</label>
+                    <input type="text" id="search-input" placeholder="Search by verse range or date..." onkeyup="filterMessages()">
+                </div>
+                <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+            </div>
+
+            <div id="messages-container" class="messages-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading messages...
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload New Message Tab -->
+        <div id="upload-tab" class="tab-content">
+            <div class="upload-form">
+                <h2>Add New Audio Message</h2>
+                <form id="upload-form" onsubmit="uploadMessage(event)">
+                    <div class="form-group">
+                        <label for="message-date">Date:</label>
+                        <input type="date" id="message-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="book-name">Book:</label>
+                        <select id="book-name" required>
+                            <option value="">Select a book</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chapter-number">Chapter:</label>
+                        <input type="number" id="chapter-number" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="verse-range">Verse Range:</label>
+                        <input type="text" id="verse-range" placeholder="e.g., 1-10, 15-20" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="audio-file">Audio File:</label>
+                        <input type="file" id="audio-file" accept="audio/*" required>
+                        <small>Supported formats: MP3, WAV, M4A</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Notes (optional):</label>
+                        <textarea id="notes" placeholder="Additional notes about this message..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Upload Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="audio-player" class="audio-player hidden">
+        <div class="player-content">
+            <button class="close-btn" onclick="closePlayer()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="player-info">
+                <h3 id="player-title">Loading...</h3>
+                <p id="player-details">Please wait...</p>
+            </div>
+            <audio id="audio-element" controls>
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script src="bible-books.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
